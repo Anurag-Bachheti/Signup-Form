@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Form</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+    <form class="form" onsubmit="submitForm(event)">
+        <div class="tab">
+        <header class="caption">
+            <caption >Signup</caption>
+        </header>
+
+        <main>
+            <label for="name"></label>
+            <input type="text" id="name" placeholder="Full name" required="Yes">
+            <br>
+            <label for="email"></label>
+            <input type="email" id="email" placeholder="Email" required="Yes">
+            <br>
+            <label for="password"></label>
+            <input type="password" id="password" placeholder="Password" required="Yes">
+            <br>
+            <label for="confirmPassword"></label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required="Yes">
+            <span id="message" style="color: red;"></span>
+            <br>
+            <label for="DOB"></label>
+            <input type="date" id="DOB" placeholder="MM/DD/YYYY" required="Yes">
+            <br>
+
+        </main>
+
+
+        <footer>
+            <input type="radio" id="Student" name="profession" value="Student" required="Yes">
+            <label for="Student">Student</label>
+            <input type="radio" id="Employee" name="profession" value="Employee" required="Yes">
+            <label for="Employee">Employee</label>
+            <br>
+            <input type="radio" id="click" name="agreement" required>
+            <label for="click">I agree to all the Terms and Conditions</label>
+            <br>
+            <button id="Signup" required="Yes">Signup</button>
+        </footer>
+    </div>
+    </form>
+
+
+
+
+    <script>
+        document.getElementById("confirmPassword").addEventListener("input", function () {
+            let password = document.getElementById("password").value;
+            let confirmPassword = this.value;
+            let message = document.getElementById("message");
+
+            if (password === confirmPassword) {
+                message.textContent = "Password match";
+                message.style.color = "green"
+            } else {
+                message.textContent = "Password do not match";
+                message.style.color = "red";
+            }
+        });
+
+        function submitForm(event){
+            event.preventDefault();
+            alert("Form Submitted Successfully!!...");
+        }
+        
+    </script>
+</body>
+
+</html>
